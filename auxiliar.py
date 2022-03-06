@@ -1,3 +1,7 @@
+from merkle import calculate_merkle_root
+from hashlib import sha256
+from Crypto import Hash
+
 def new_hash(difficulty, height, last_hash, timestamp, nounce, message):
     merkle_root = calculate_merkle_root(message)
     header = "{}{}{}{}{}{}".format(height, last_hash, merkle_root, timestamp, difficulty, nounce)
